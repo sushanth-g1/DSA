@@ -1,0 +1,33 @@
+Q. Given an array nums of size n, return the majority element.The majority element is the element that appears more than ⌊n / 2⌋ times.
+You may assume that the majority element always exists in the array.
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+
+This algorithm has a linear time complexity of O(n) and constant space complexity.
+
+Inofrmation Source ChatGPT : In this algorithm, we maintain a candidate for the majority element (candidate) and a counter (count).
+We iterate through the array, updating the candidate and count based on certain conditions.
+The key insight is that if there is a majority element, it will survive the entire iteration due to the property of having more occurrences than all other elements combined
+
+
+HashMap:
+
+Iterate through the array and maintain a HashMap to count the occurrences of each element.
+After the iteration, find the element with the maximum count.
+This approach has a time complexity of O(n) but requires additional space for the HashMap.
+
+Sorting:
+
+Sort the array in non-decreasing order.
+The majority element will be the element at index n/2, where n is the length of the array.
+This approach has a time complexity of O(n log n) due to sorting.
+
+It's worth noting that the Boyer-Moore Voting Algorithm is often preferred for its linear time complexity and constant space complexity, making it more efficient than some other methods
