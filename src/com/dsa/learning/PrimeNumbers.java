@@ -34,6 +34,8 @@ public class PrimeNumbers {
         }
         return false;
     }
+
+    // Sieve of Eratosthenes
     public static void seivePrime(int n){
         boolean[] prime = new boolean[n+1];
         for(int i=2;i<=n;i++){                      //for(int i=2;i<=Math.sqrt(n);i++)  i<=Math.sqrt(n) -----> 2nd Optimisation

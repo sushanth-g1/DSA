@@ -58,7 +58,7 @@ check prime(int n){
     }
 }
 
-Approach-3
+Approach-3 (Sieve of Eratosthenes)
 
 seivePrime(int n){
     boolean[] prime = new boolean[n+1];
