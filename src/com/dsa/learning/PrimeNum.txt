@@ -1,0 +1,77 @@
+N is a prime number if no of factors of N = 2
+N is a positive integer
+
+Psuedo code
+
+Approach-1
+
+check prime(int n){                 #N
+    if(n<=1){                       if N = 24, 24-iterations
+        return false;               if N = 10^8 (for ex : 1 sec to do 10^8 operations)
+    }                               so for large inputs of N it will take longer durations
+    int noOfFactor = 0;             Time Complexity : O(N)
+    for(int i=1; i<=n;i++){
+        if(n%i == 0){
+            noOfFactor++;
+        }
+    }
+    if(noOfFactor == 2){
+        return true;
+    }
+}
+
+to find factors for N=24
+
+i(24)       n/i
+1           24
+2           12
+3           8
+4           6
+------------------------ condition to stop 1st factor less than second factor
+6           4
+8           3           repeating pairs
+12          2
+24          1
+
+inside the for loop
+for(int i=1; i<=n; i++)
+
+equating the above condtion
+i   <= n/i
+i^2 <= n
+i   <= sqRoot(n)
+
+Approach-2
+
+check prime(int n){
+    if(n<=1){
+        return false;
+    }
+    int noOfFactor = 0;
+    for(int i=1; i<=Math.sqrt(n);i++){      Time Complexity : O(root(N))
+        if(n%i == 0){
+            noOfFactor++;
+        }
+    }
+    if(noOfFactor == 2){
+        return true;
+    }
+}
+
+Approach-3
+
+seivePrime(int n){
+    boolean[] prime = new boolean[n+1];
+    for(int i=2;i<=n;i++){                      //for(int i=2;i<=Math.sqrt(n);i++)  i<=Math.sqrt(n) -----> 2nd Optimisation
+       if(prime[i] == false){
+          for (int j=i*2;j<=n;j=j+i){           //for (int j=i*i;j<=n;j=j+i)  j=i*i -----> 1st Optimisation
+              prime[j] = true;
+          }                                     //https://youtu.be/PTOb0ZdBv8s?si=LdGvCIjoWuE3X2GH
+       }
+    }
+    for (int i=2;i<=n;i++){
+       if (prime[i] == false){
+           System.out.println(i);
+       }
+    }
+}
