@@ -1,0 +1,82 @@
+#Psuedo Code
+
+Construct Prefix Sum
+i.e
+
+Pf[0] = arr[0];
+for(i=1;i<n;i++){
+Pf[i]=P[i-1]+arr[i];                    TC : O(N)
+}
+
+for(i=1;i<=Q;i++){
+    if(L==R)
+        print(Pf[R]);
+    else
+        print(Pf[R]-Pf[L-1]);           TC : O(Q)
+}
+                                        TC = O(N+Q)
+                                        TC = O(N)
+
+
+Q. Equilibrium index of an array
+
+Given N array elements find the count of EI
+EI : where sum of all elements to its left is equal sum of all elements to its right
+
+              0     1   2     3
+Ex: arr[4] = -3     2   4    -1
+sumLeft    =  0    -3  -1     3
+sumRight   =  5     3  -1     0
+                count = 1
+
+
+Q. Given N array elements, find the prefix sum of only even indexed elements
+
+              0    1     2    3    4     5
+arr[]    =    3   -2     4    6   -3     5
+prefix[] =    3    3     7    7    4     4
+
+
+#Psuedo Code
+prefixEven[0] = arr[0]
+for(i=1;i<n;i++){
+    if(i%2 == 0){
+        prefixEven[i] = prefixEven[i-1]+arr[i];
+    }
+    else{
+        prefixEven[i] = prefixEven[i-1];
+    }
+}
+
+Q. Special Index
+It is an index where if we delete it, then the sum of even index is equal to sum of odd index
+
+        *** sum of even indexed elem = sum of odd indexed elem ***
+
+            0   1   2   3   4    5
+Ex:         4   3   2   7   6   -2
+prefixEven  4   4   6   6   12  12
+prefixOdd   0   3   3   10  10  8
+
+Delete index 0  ->>> Special Index
+ 0  1   2   3    4
+[3, 2,  7,  6,  -2]
+sumEven = 8
+sumOdd = 8
+
+Delete index 1
+ 0  1   2   3    4
+[4, 2,  7,  6,  -2]
+sumEven = 9
+sumOdd = 8
+
+Delete index 2  ->>> Special Index
+ 0  1   2   3    4
+[4, 3,  7,  6,  -2]
+sumEven = 9
+sumOdd = 9
+
+
+sumEven = prefixEven[i-1]+(prefixOdd[n-1]-prefixOdd[i]);    // prefixOdd[i]  deleting the index
+sumOdd = prefixOdd[i-1]+(prefixEven[n-1]-prefixEven[i]);    // prefixEven[i] deleting the index
+
