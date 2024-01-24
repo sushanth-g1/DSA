@@ -1,4 +1,4 @@
-package com.dsa.learning;
+package com.dsa.learning.arrays;
 
 public class PrefixSum {
     public static int[] sum(int[] arr){

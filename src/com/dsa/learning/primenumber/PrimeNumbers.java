@@ -1,4 +1,4 @@
-package com.dsa.learning;
+package com.dsa.learning.primenumber;
 
 public class PrimeNumbers {
     //Prime Numbers

@@ -1,4 +1,4 @@
-package com.dsa.learning;
+package com.dsa.learning.arrays;
 
 public class CarryForward {
     public static int subArray(char[] s){
