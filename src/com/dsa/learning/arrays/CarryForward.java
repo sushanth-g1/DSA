@@ -42,7 +42,7 @@ public class CarryForward {
                 }
             }
         }
-
+        System.out.println("ans");
         return ans;
 
     }
